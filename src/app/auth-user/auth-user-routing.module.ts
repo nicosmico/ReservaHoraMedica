@@ -25,7 +25,7 @@ const routes: Routes = [
       {path: 'administradores', component: CrudAdminComponent, canActivate: [AdminGuard]},
 
       // BORRAR ESTAS RUTAS
-      {path: 'create-admin', component: CreateAdminComponent},
+      {path: 'create', component: CreateAdminComponent},
     ]
   }
 ];
