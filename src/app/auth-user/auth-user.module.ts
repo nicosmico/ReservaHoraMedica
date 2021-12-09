@@ -22,13 +22,15 @@ import { EditHoraMedicaComponent } from './components/edit-hora-medica/edit-hora
 import { EditPacienteComponent } from './components/edit-paciente/edit-paciente.component';
 import { EditPersonalComponent } from './components/edit-personal/edit-personal.component';
 import { EditSecretarioComponent } from './components/edit-secretario/edit-secretario.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [AuthUserTemplateComponent, CrudExamenComponent, CrudHoraMedicaComponent, CrudPacienteComponent, CrudPersonalComponent, CrudSecretarioComponent, CrudAdminComponent, LogsComponent, CreateAdminComponent, CreateExamenComponent, CreateHoraMedicaComponent, CreatePacienteComponent, CreatePersonalComponent, CreateSecretarioComponent, EditAdminComponent, EditExamenComponent, EditHoraMedicaComponent, EditPacienteComponent, EditPersonalComponent, EditSecretarioComponent],
   imports: [
     CommonModule,
-    AuthUserRoutingModule
+    AuthUserRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class AuthUserModule { }

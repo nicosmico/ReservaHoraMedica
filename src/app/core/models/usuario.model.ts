@@ -1,4 +1,4 @@
-export interface Paciente{
+export interface Usuario{
     rut: number,
     nombre: String,
     apellido1: String,
