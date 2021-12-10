@@ -1,5 +1,5 @@
 export interface Log{
-    id: number,
+    id?: number,
     usuario: number,
     fecha: Date,
     accion: String

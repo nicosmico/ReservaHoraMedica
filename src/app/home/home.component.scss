@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:host{
+    display: block;
+    height: 100vh;
+
+    background-image: url(../../assets/background.jpg);
+    background-size: cover;
+    opacity: 0.9;
+
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.55);
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+
+    div {
+        flex-grow: 5;
+    }
+
+    h1 {
+        font-size: 40px;
+        color: white;
+    }
+
+    h1:hover {
+        cursor: pointer;
+    }
+
+    a {
+        text-decoration: none;
+    }
+}
+
+nav {
+    flex-grow: 6;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    a {
+        margin: 0 30px;
+        font-size: 24px;
+        color: white;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    a:hover {
+        cursor: pointer;
+    }
+
+    button {
+        width: 144px;
+        height: 40px;
+        border-radius: 10px;
+        border: 0;
+        background-color: rgba(255, 255, 255, 0.2);
+        color: white;
+        font-size: 18px;
+    }
+
+    button:hover {
+        cursor: pointer;
+    }
+}
+
+main {
+    margin-top: 15%;
+
+    display: grid;
+    align-items: center;
+    justify-items: center;
+
+    justify-content: center;
+    align-content: center;
+
+    gap: 10px;
+
+    h2 {
+        font-size: 48px;
+    }
+    
+    p {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    button {
+        width: 50%;
+        height: 65px;
+        border-radius: 10px;
+        border: 0;
+        background-color: #44C2D6;
+        color: white;
+        font-size: 24px;
+    }
+
+    button:hover {
+        cursor: pointer;
+    }
+}

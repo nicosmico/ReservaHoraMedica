@@ -16,7 +16,6 @@ export class CreateAdminComponent implements OnInit {
     private formBuilder: FormBuilder
   ) {
     this.buildForm();
-    this.save();
   }
 
   ngOnInit(): void {
@@ -24,18 +23,18 @@ export class CreateAdminComponent implements OnInit {
 
   private buildForm(){
     this.form = this.formBuilder.group({
-      rut: ['mirut', [Validators.required]],
-      contrasena: ['mipass', [Validators.required]],
-      nombre: ['miname', [Validators.required]],
-      apellido1: ['minames', [Validators.required]],
-      apellido2: ['minamess', [Validators.required]],
-      telefono: ['+56989799154', [Validators.required, CustomValidators.telefono]],
-      correo: ['nico@gmail.com', [Validators.required, Validators.email]],
+      rut: ['', [Validators.required, CustomValidators.rut]],
+      contrasena: ['', [Validators.required]],
+      nombre: ['', [Validators.required]],
+      apellido1: ['', [Validators.required]],
+      apellido2: ['', [Validators.required]],
+      telefono: ['', [Validators.required, CustomValidators.telefono]],
+      correo: ['', [Validators.required, Validators.email]],
     });
   }
 
-  save(event?: Event){
-    // event.preventDefault();
+  save(event: Event){
+    event.preventDefault();
     if(this.form.valid){
       const admin: AuthUser = this.form.value;
       admin.personal_activo = true;
