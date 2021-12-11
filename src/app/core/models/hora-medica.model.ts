@@ -1,5 +1,5 @@
 export interface HoraMedica{
-    id: number,
+    id?: number,
     fechaInicial: Date
     fechaFinal: Date
     paciente: number

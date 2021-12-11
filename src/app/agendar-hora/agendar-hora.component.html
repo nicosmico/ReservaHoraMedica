@@ -1,0 +1,121 @@
+<div class="container">
+    <header>
+        <div class="header">
+            <a routerLink="/"><h1>Los Cliniquitos</h1></a>
+        </div>
+    
+        <nav>
+            <a>Servicios</a>
+            <a>Contacto</a>
+            <a>Sobre Nosotros</a>
+        
+            <a routerLink="/login"><button>Iniciar Sesión</button></a>
+        </nav>
+    </header>
+    
+    <main>
+        <div id="formularios">
+            <form [formGroup]="form" (ngSubmit)="save($event)">
+                <div id="examen-card">
+                    <h2>¿Cúal exámen quieres realizarte?</h2>
+    
+                    <mat-form-field appearance="fill">
+                        <mat-label>Examen</mat-label>
+                        <mat-select formControlName="examen">
+                            <mat-option *ngFor="let examen of examenes" [value]="examen.id">
+                            {{examen.nombre}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+        
+                <div id="fecha-hora-card">
+                    <h2>Selecciona el dia y la hora a asistir</h2>
+                    <div class="fecha-hora">
+                        <div class="calendario">
+    
+                            <mat-card class="demo-inline-calendar-card">
+                                <mat-calendar [(selected)]="selectedDate" (selectedChange)="selectedDateChange()"></mat-calendar>
+                            </mat-card>
+                            
+                        </div>
+                        <mat-chip-list class="horas">
+                            <mat-chip class="bloque-horario" (click)="selectHora(bloque)" *ngFor="let bloque of horasDisponibles">{{ bloque.hora }}:{{ bloque.minutos == 0? '00': bloque.minutos }}</mat-chip>
+                        </mat-chip-list>
+                    </div>
+                </div>
+        
+                <div id="personal-card">
+                    <h2>¿Qué profesional quieres que te atienda?</h2>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Profesional</mat-label>
+                        <mat-select formControlName="personalMedico">
+                            <mat-option *ngFor="let persona of personal" [value]="persona.rut">
+                            {{persona.nombre}} {{persona.apellido1}} {{persona.apellido2}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+        
+                <div id="datos-card">
+                    <h2>Ingresa tus datos personales</h2>
+                    
+                    <mat-form-field appearance="fill">
+                        <mat-label>Rut</mat-label>
+                        <input type="text" matInput formControlName="rut" placeholder="11111111-3">
+                        <mat-error>
+                          Ingresa un RUT válido
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Nombre</mat-label>
+                        <input type="text" matInput formControlName="nombre">
+                        <mat-error>
+                          Ingresa un nombre
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Apellido Paterno</mat-label>
+                        <input type="text" matInput formControlName="apellido1">
+                        <mat-error>
+                          Ingresa un apellido
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Apellido Materno</mat-label>
+                        <input type="text" matInput formControlName="apellido2">
+                        <mat-error>
+                          Ingresa un apellido
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Teléfono</mat-label>
+                        <input type="text" matInput formControlName="telefono">
+                        <mat-error>
+                          Ingresa un número de teléfono
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Correo</mat-label>
+                        <input type="text" matInput formControlName="correo">
+                        <mat-hint align="start">Opcional*</mat-hint>
+                        <mat-error>
+                          Ingresa un correo valido
+                        </mat-error>
+                    </mat-form-field>
+
+                    <button type="submit" mat-raised-button class="submit-button">Agendar Hora</button>
+                </div>
+            </form>
+
+        </div>
+
+        <div id="resumen-card" *ngIf="examenField.value!=''||selectedDate!=null||selectedHora!=null||personalMedicoField.value!=''">
+            <h2>Resumen</h2>
+            <p *ngIf="examenField.value!=''">Examen: {{ examenField.value }}</p>
+            <p *ngIf="selectedDate!=null">Fecha: {{ selectedDate }}</p>
+            <p *ngIf="selectedHora!=null">Hora: {{ selectedHora }}</p>
+            <p *ngIf="personalMedicoField.value!=''">Profesional:{{ personalMedicoField.value }}</p>
+        </div>
+    </main>
+</div>

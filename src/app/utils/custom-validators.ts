@@ -23,7 +23,9 @@ export class CustomValidators{
     //     return null;
     // }
 
-    static rut(control: AbstractControl){}
+    static rut(control: AbstractControl){
+        return null;
+    }
 
     static emailAviliable(control: AbstractControl){}
     static pacienteExist(control: AbstractControl){}
