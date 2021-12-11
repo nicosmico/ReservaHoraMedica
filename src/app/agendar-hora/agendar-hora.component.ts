@@ -9,6 +9,7 @@ import { Usuario } from '../core/models/usuario.model';
 import { ExamenService } from '../core/services/examen.service';
 import { HoraMedicaService } from '../core/services/hora-medica.service';
 import { UsuarioService } from '../core/services/usuario.service';
+import { CustomValidators } from '../utils/custom-validators';
 
 @Component({
   selector: 'app-agendar-hora',
@@ -25,6 +26,8 @@ export class AgendarHoraComponent implements OnInit {
   personal: Usuario[];
   
   selectedHora: String;
+  minDate: Date = new Date();
+  maxDate: Date = new Date();
 
   constructor(
     private examenService: ExamenService,
@@ -33,6 +36,8 @@ export class AgendarHoraComponent implements OnInit {
     private usuarioService: UsuarioService
   ) {
     this.buildForm();
+    this.minDate.setHours(this.minDate.getHours() + 24);
+    this.maxDate.setMonth(this.minDate.getMonth() + 1); // Rango de un mes
   }
 
   ngOnInit(): void {
@@ -48,11 +53,11 @@ export class AgendarHoraComponent implements OnInit {
       personalMedico: ["", Validators.required],
 
       // paciente: ["", Validators.required],
-      rut: ["", Validators.required],
+      rut: ["", [Validators.required, CustomValidators.rut]],
       nombre: ["", Validators.required],
       apellido1: ["", Validators.required],
       apellido2: ["", Validators.required],
-      telefono: ["", Validators.required],
+      telefono: ["", [Validators.required, CustomValidators.telefono]],
       correo: ["", Validators.email],
     });
   }

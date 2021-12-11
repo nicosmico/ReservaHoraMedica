@@ -17,6 +17,7 @@ import { MatInputModule } from '@angular/material/input'
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatChipsModule} from '@angular/material/chips';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import {MatChipsModule} from '@angular/material/chips';
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    SharedModule,
 
     MatSelectModule,
     MatDatepickerModule,

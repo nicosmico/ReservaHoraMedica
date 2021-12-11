@@ -19,7 +19,7 @@
                 <div id="examen-card">
                     <h2>¿Cúal exámen quieres realizarte?</h2>
     
-                    <mat-form-field appearance="fill">
+                    <mat-form-field appearance="legacy">
                         <mat-label>Examen</mat-label>
                         <mat-select formControlName="examen">
                             <mat-option *ngFor="let examen of examenes" [value]="examen.id">
@@ -35,7 +35,7 @@
                         <div class="calendario">
     
                             <mat-card class="demo-inline-calendar-card">
-                                <mat-calendar [(selected)]="selectedDate" (selectedChange)="selectedDateChange()"></mat-calendar>
+                                <mat-calendar [(selected)]="selectedDate" (selectedChange)="selectedDateChange()" [minDate]="minDate" [maxDate]="maxDate"></mat-calendar>
                             </mat-card>
                             
                         </div>
@@ -47,7 +47,7 @@
         
                 <div id="personal-card">
                     <h2>¿Qué profesional quieres que te atienda?</h2>
-                    <mat-form-field appearance="fill">
+                    <mat-form-field appearance="legacy">
                         <mat-label>Profesional</mat-label>
                         <mat-select formControlName="personalMedico">
                             <mat-option *ngFor="let persona of personal" [value]="persona.rut">
@@ -60,42 +60,42 @@
                 <div id="datos-card">
                     <h2>Ingresa tus datos personales</h2>
                     
-                    <mat-form-field appearance="fill">
+                    <mat-form-field appearance="legacy">
                         <mat-label>Rut</mat-label>
-                        <input type="text" matInput formControlName="rut" placeholder="11111111-3">
+                        <input type="text" matInput formControlName="rut" placeholder="12345678-K">
                         <mat-error>
                           Ingresa un RUT válido
                         </mat-error>
                     </mat-form-field>
-                    <mat-form-field appearance="fill">
+                    <mat-form-field appearance="legacy">
                         <mat-label>Nombre</mat-label>
                         <input type="text" matInput formControlName="nombre">
                         <mat-error>
                           Ingresa un nombre
                         </mat-error>
                     </mat-form-field>
-                    <mat-form-field appearance="fill">
+                    <mat-form-field appearance="legacy">
                         <mat-label>Apellido Paterno</mat-label>
                         <input type="text" matInput formControlName="apellido1">
                         <mat-error>
                           Ingresa un apellido
                         </mat-error>
                     </mat-form-field>
-                    <mat-form-field appearance="fill">
+                    <mat-form-field appearance="legacy">
                         <mat-label>Apellido Materno</mat-label>
                         <input type="text" matInput formControlName="apellido2">
                         <mat-error>
                           Ingresa un apellido
                         </mat-error>
                     </mat-form-field>
-                    <mat-form-field appearance="fill">
+                    <mat-form-field appearance="legacy">
                         <mat-label>Teléfono</mat-label>
-                        <input type="text" matInput formControlName="telefono">
+                        <input type="text" matInput formControlName="telefono" placeholder="+56922334455">
                         <mat-error>
-                          Ingresa un número de teléfono
+                          Ingresa un número de teléfono valido
                         </mat-error>
                     </mat-form-field>
-                    <mat-form-field appearance="fill">
+                    <mat-form-field appearance="legacy">
                         <mat-label>Correo</mat-label>
                         <input type="text" matInput formControlName="correo">
                         <mat-hint align="start">Opcional*</mat-hint>
@@ -112,10 +112,10 @@
 
         <div id="resumen-card" *ngIf="examenField.value!=''||selectedDate!=null||selectedHora!=null||personalMedicoField.value!=''">
             <h2>Resumen</h2>
-            <p *ngIf="examenField.value!=''">Examen: {{ examenField.value }}</p>
-            <p *ngIf="selectedDate!=null">Fecha: {{ selectedDate }}</p>
+            <p *ngIf="examenField.value!=''">Examen: {{ examenField.value|examenIdToName:examenes }}</p>
+            <p *ngIf="selectedDate!=null">Fecha: {{ selectedDate.toLocaleDateString("es-ES", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })|titlecase }}</p>
             <p *ngIf="selectedHora!=null">Hora: {{ selectedHora }}</p>
-            <p *ngIf="personalMedicoField.value!=''">Profesional:{{ personalMedicoField.value }}</p>
+            <p *ngIf="personalMedicoField.value!=''">Profesional: {{ personalMedicoField.value|rutToName:personal }}</p>
         </div>
     </main>
 </div>

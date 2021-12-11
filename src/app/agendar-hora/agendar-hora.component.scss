@@ -1,12 +1,7 @@
-* {
-    margin: 0;
-    padding: 0;
-    font-family: 'Open Sans', sans-serif;
-}
-
 :host{
     display: block;
-    height: 3000px; // Cambiar al terminar
+    height: 1800px; // Cambiar al terminar
+    min-width: 1250px;
 
     background-image: url(../../assets/background.jpg);
     background-size: cover;
@@ -19,7 +14,7 @@
 
 .container {
     background-color: rgba(0, 0, 0, 0.55);
-    height: 3000px; // Cambiar al terminar
+    height: 1800px; // Cambiar al terminar
 }
 
 header {
@@ -82,18 +77,19 @@ nav {
 
 main {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     align-items: center;
+    padding-left: 20%;
 }
 
 #formularios {
-    grid-column: 2/6;
+    grid-column: 1/4;
     grid-row: 1/5;
 }
 
 #resumen-card{
-    grid-column: 6/7;
+    grid-column: 4/5;
     grid-row: 1/2;
 
     position: sticky;
@@ -105,10 +101,11 @@ main {
     border: aaa;
     margin: 0 30px;
     padding: 30px;
-    justify-items: center;
+    justify-items: start;
 
     h2 {
         font-size: 24px;
+        text-align: center;
     }
 
     p {
@@ -165,18 +162,13 @@ main {
 
 .bloque-horario {
     background-color: #44C2D6;
-    // border-radius: 10px;
+    color: white;
     font-size: 24px;
-    // padding: 5px 10px;
-    // width: 80px;
-    // text-align: center;
-    // border: none;
-    // shape-outside: none;
 }
 
-// .bloque-horario:hover {
-//     cursor: pointer;
-// }
+.bloque-horario:hover {
+    cursor: pointer;
+}
 
 #personal-card {
     display: grid;
@@ -206,9 +198,6 @@ main {
     }
 }
 
-mat-form-field {
-    width: 100%;
-}
 
 .submit-button {
     background-color: #44C2D6;
@@ -216,3 +205,45 @@ mat-form-field {
     border: none;
     shape-outside: none;
 }
+
+
+// Cambio de colores a los mat-form-field!
+mat-form-field {
+    width: 100%;
+}
+
+mat-label {
+    color: white;
+}
+
+mat-hint {
+    color: white !important;
+}
+
+// Sin seleccionar
+:host::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
+    background-color: white;
+}
+
+:host::ng-deep .mat-form-field-appearance-legacy .mat-select-arrow{
+    color: white;
+}
+
+:host::ng-deep .mat-select-value{    
+    color: white;
+}
+
+// Seleccionado
+:host::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
+    background-color: white;
+}
+
+:host::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+    color: white;
+}
+
+:host::ng-deep .mat-form-field.mat-focused.mat-primary .mat-select-arrow{
+    color: white;
+}
+
+
