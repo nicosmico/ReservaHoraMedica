@@ -20,4 +20,8 @@ export class ExamenService {
   getExamenesDisponibles(): Observable<Examen[]>{
     return of(this.examenes.filter(examen => examen.disponible == true));
   }
+
+  deleteExamen(examen: Examen): Observable<any>{
+    return of(true);
+  }
 }

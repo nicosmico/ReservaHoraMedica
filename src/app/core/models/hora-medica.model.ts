@@ -2,7 +2,7 @@ export interface HoraMedica{
     id?: number,
     fechaInicial: Date
     fechaFinal: Date
-    paciente: number
+    paciente: number|String
     examen: number
-    personalMedico: number
+    personalMedico: number|String
 }

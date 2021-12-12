@@ -37,4 +37,13 @@ export class HoraMedicaService {
 
     return of(aviliableHorasMedicas);
   }
+
+  getHorasMedicas(): Observable<HoraMedica[]>{
+    return of(this.horasMedicas);
+  }
+
+  deleteHoraMedica(horaMedica: HoraMedica): Observable<any>{
+    console.log(horaMedica);
+    return of(true);
+  }
 }

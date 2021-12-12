@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Examen } from 'src/app/core/models/examen.model';
+import { MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-edit-examen',
@@ -12,6 +13,7 @@ export class EditExamenComponent implements OnInit {
   form: FormGroup;
 
   constructor(
+    @Inject(MAT_DIALOG_DATA) public data: Examen,
     private formBuilder: FormBuilder
   ) {
     this.buildForm();
@@ -22,9 +24,8 @@ export class EditExamenComponent implements OnInit {
 
   private buildForm(){
     this.form = this.formBuilder.group({
-      id: ['', [Validators.required]],
-      nombre: ['', [Validators.required]],
-      disponible: ['', Validators.required]
+      nombre: [this.data.nombre, [Validators.required]],
+      disponible: [this.data.disponible, Validators.required]
     });
   }
 
@@ -36,25 +37,4 @@ export class EditExamenComponent implements OnInit {
       console.log(examen);
     }
   }
-
-  get idField(){
-    return this.form.get('id');
-  }
-  get nombreField(){
-    return this.form.get('nombre');
-  }
-
-  get isIdFieldValid(){
-    return (this.idField.touched || this.idField.dirty) && this.idField.valid;
-  }
-  get isIdFieldInvalid(){
-    return (this.idField.touched || this.idField.dirty) && this.idField.invalid;
-  }
-  get isNombreFieldValid(){
-    return (this.nombreField.touched || this.nombreField.dirty) && this.nombreField.valid;
-  }
-  get isNombreFieldInvalid(){
-    return (this.nombreField.touched || this.nombreField.dirty) && this.nombreField.invalid;
-  }
-
 }

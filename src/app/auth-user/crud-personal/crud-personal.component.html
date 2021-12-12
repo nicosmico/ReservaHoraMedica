@@ -1,1 +1,59 @@
-<p>crud-personal works!</p>
+<main class="mat-elevation-z8">
+    <h1>Personal Médico</h1>
+    <div class="crear">
+        <p class="descripcion">En esta sección puedes crear, editar o eliminar personal médico.</p>
+        <p>Crear personal médico</p>
+        <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="create()">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+    
+    <div id="tabla">
+        <div class="busqueda">
+            <mat-form-field appearance="standard">
+                <mat-label>Buscar</mat-label>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Buscar por nombre, rut, telefono o email" #input>
+            </mat-form-field>
+        </div>
+        <table mat-table [dataSource]="dataSource" matSort>
+      
+          <ng-container matColumnDef="rut">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> RUT </th>
+            <td mat-cell *matCellDef="let row"> {{row.rut}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+            <td mat-cell *matCellDef="let row"> {{row.nombre}} {{row.apellido1}} {{row.apellido2}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="telefono">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Teléfono </th>
+            <td mat-cell *matCellDef="let row"> {{row.telefono}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="correo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Correo </th>
+            <td mat-cell *matCellDef="let row"> {{row.correo}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="acciones" class="acciones">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Acciones</th>
+            <td mat-cell *matCellDef="let row">
+                <button mat-raised-button color="accent" (click)="edit(row)">Editar</button>
+                <button mat-raised-button color="warn" (click)="delete(row)">Borrar</button>
+            </td>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+          <!-- Row shown when there is no matching data. -->
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No hay resultados para "{{input.value}}"</td>
+          </tr>
+        </table>
+      
+        <mat-paginator [pageSizeOptions]="[10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+    </div>
+</main>

@@ -1,45 +1,65 @@
-<h2>Crear Administrador</h2>
-<form [formGroup]="form" (ngSubmit)="save($event)">
-    <label for="rut">Rut</label>
-    <input type="text" formControlName="rut" id="rut" ngClass="{
-        'is-valid': isRutFieldValid,
-        'is-invalid': isRutFieldInvalid
-    }">
-    <div *ngIf="isRutFieldValid">
-        <p *ngIf="rutField.hasError('required')">Este campo es obligatorio</p>
-    </div>
-    
-    <input type="text" formControlName="contrasena" ngClass="{
-        'is-valid': isContrasenaFieldValid,
-        'is-invalid': isContrasenaFieldInvalid
-    }">
-    <div *ngIf="isContrasenaFieldValid">
-        <p *ngIf="contrasenaField.hasError('required')">Este campo es obligatorio</p>
-    </div>
-    
-    <input type="text" formControlName="nombre" ngClass="{
-        'is-valid': isNombreFieldValid,
-        'is-invalid': isNombreFieldInvalid
-    }">
-    <div *ngIf="isNombreFieldValid">
-        <p *ngIf="nombreField.hasError('required')">Este campo es obligatorio</p>
-    </div>
+<main>
+    <h1>Crear Administrador</h1>
 
-    <input type="text" formControlName="apellido1" ngClass="{
-        'is-valid': isApellido1FieldValid,
-        'is-invalid': isApellido1FieldInvalid
-    }">
-    <div *ngIf="isApellido1FieldValid">
-        <p *ngIf="apellido1Field.hasError('required')">Este campo es obligatorio</p>
-    </div>
+    <form [formGroup]="form" (ngSubmit)="save($event)">
 
-    <input type="text" formControlName="apellido2" ngClass="{
-        'is-valid': isApellido2FieldValid,
-        'is-invalid': isApellido2FieldInvalid
-    }">
-    <div *ngIf="isApellido2FieldValid">
-        <p *ngIf="apellido2Field.hasError('required')">Este campo es obligatorio</p>
-    </div>
+        <mat-form-field appearance="legacy">
+            <mat-label>RUT</mat-label>
+            <input type="text" matInput formControlName="rut">
+            <mat-error>
+              Ingresa un RUT válido
+            </mat-error>
+        </mat-form-field>
 
-    <button type="submit">Guardar</button>
-</form>
+        <mat-form-field appearance="legacy">
+            <mat-label>Contraseña</mat-label>
+            <input type="password" matInput formControlName="contrasena">
+            <mat-error>
+              Ingresa un contraseña válida
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy">
+            <mat-label>Nombre</mat-label>
+            <input type="text" matInput formControlName="nombre">
+            <mat-error>
+              Ingresa un nombre
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy">
+            <mat-label>Apellido Paterno</mat-label>
+            <input type="text" matInput formControlName="apellido1">
+            <mat-error>
+              Ingresa un apellido
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy">
+            <mat-label>Apellido Materno</mat-label>
+            <input type="text" matInput formControlName="apellido2">
+            <mat-error>
+              Ingresa un apellido
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy">
+            <mat-label>Teléfono</mat-label>
+            <input type="text" matInput formControlName="telefono" placeholder="+56922334455">
+            <mat-error>
+              Ingresa un teléfono válido
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy">
+            <mat-label>Correo</mat-label>
+            <input type="email" matInput formControlName="correo">
+            <mat-error>
+              Ingresa un correo válido
+            </mat-error>
+        </mat-form-field>
+
+        
+        <button type="submit" mat-raised-button color="primary">Guardar</button>
+    </form>
+</main>

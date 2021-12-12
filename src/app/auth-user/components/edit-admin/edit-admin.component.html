@@ -1,1 +1,57 @@
-<p>edit-admin works!</p>
+<main>
+    <h1>Editar Administrador</h1>
+
+    <form [formGroup]="form" (ngSubmit)="save($event)">
+
+        <mat-form-field appearance="legacy">
+            <mat-label>Contraseña</mat-label>
+            <input type="password" matInput formControlName="contrasena">
+            <mat-error>
+              Ingresa un contraseña válida
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy">
+            <mat-label>Nombre</mat-label>
+            <input type="text" matInput formControlName="nombre">
+            <mat-error>
+              Ingresa un nombre
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy">
+            <mat-label>Apellido Paterno</mat-label>
+            <input type="text" matInput formControlName="apellido1">
+            <mat-error>
+              Ingresa un apellido
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy">
+            <mat-label>Apellido Materno</mat-label>
+            <input type="text" matInput formControlName="apellido2">
+            <mat-error>
+              Ingresa un apellido
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy">
+            <mat-label>Teléfono</mat-label>
+            <input type="text" matInput formControlName="telefono" placeholder="+56922334455">
+            <mat-error>
+              Ingresa un teléfono válido
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy">
+            <mat-label>Correo</mat-label>
+            <input type="email" matInput formControlName="correo">
+            <mat-error>
+              Ingresa un correo válido
+            </mat-error>
+        </mat-form-field>
+
+        
+        <button type="submit" mat-raised-button color="primary">Guardar</button>
+    </form>
+</main>

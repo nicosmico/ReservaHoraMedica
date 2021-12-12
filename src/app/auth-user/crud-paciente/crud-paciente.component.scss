@@ -1,0 +1,42 @@
+#tabla {
+    margin: 5px 10px;
+}
+
+table {
+    width: 100%;
+}
+
+.mat-form-field {
+    width: 100%;
+}
+
+// td, th {
+//     width: 25%;
+// }
+
+.busqueda {
+    background-color: white;
+    padding: 0 30px;
+}
+
+main {
+    background-color: white;
+    padding: 30px 30px;
+
+    h1 {
+        font-size: 35px;
+    }
+
+    .crear {
+        display: flex;
+        align-items: center;
+    }
+
+    button {
+        margin: 0 10px;
+    }
+}
+
+.descripcion {
+    flex-grow: 1;    
+}

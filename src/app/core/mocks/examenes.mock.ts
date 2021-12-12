@@ -8,7 +8,7 @@ export const examenesMock: Examen[] = [
     },
     {
         id:2,
-        disponible: true,
+        disponible: false,
         nombre: 'Examen2'
     },
     {

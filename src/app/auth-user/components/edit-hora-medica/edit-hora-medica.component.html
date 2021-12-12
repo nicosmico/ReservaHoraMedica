@@ -1,1 +1,52 @@
-<p>edit-hora-medica works!</p>
+<main>
+    <h1>Crear Hora médica</h1>
+
+    <form [formGroup]="form" (ngSubmit)="save($event)">
+
+        <mat-form-field appearance="legacy">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="fechaInicial">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error>Ingresa una fecha válida</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy">
+            <mat-label>Hora</mat-label>
+            <mat-select formControlName="hora">
+                <mat-option *ngFor="let bloque of horasDisponibles" [value]="bloque">
+                    {{ bloque.hora }}:{{ bloque.minutos == 0? '00': bloque.minutos }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy">
+            <mat-label>Paciente</mat-label>
+            <mat-select formControlName="paciente">
+                <mat-option *ngFor="let paciente of pacientes" [value]="paciente.rut">
+                    {{ paciente.nombre }} {{ paciente.apelido1 }} {{ paciente.apellido2 }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy">
+            <mat-label>Examen</mat-label>
+            <mat-select formControlName="examen">
+                <mat-option *ngFor="let examen of examenes" [value]="examen.id">
+                {{examen.nombre}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy">
+            <mat-label>Profesional</mat-label>
+            <mat-select formControlName="personalMedico">
+                <mat-option *ngFor="let persona of personal" [value]="persona.rut">
+                {{persona.nombre}} {{persona.apellido1}} {{persona.apellido2}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <button type="submit" mat-raised-button color="primary">Guardar</button>
+    </form>
+</main>

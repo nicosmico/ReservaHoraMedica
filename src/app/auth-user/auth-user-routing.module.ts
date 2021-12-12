@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminGuard } from '../core/guards/admin.guard';
-import { AuthUserTemplateComponent } from './auth-user-template/auth-user-template.component';
+import { AuthUserLayoutComponent } from './auth-user-layout/auth-user-layout.component';
 import { CreateAdminComponent } from './components/create-admin/create-admin.component';
 import { CrudAdminComponent } from './crud-admin/crud-admin.component';
 import { CrudExamenComponent } from './crud-examen/crud-examen.component';
@@ -14,7 +14,7 @@ import { LogsComponent } from './logs/logs.component';
 const routes: Routes = [
   {
     path: '',
-    component: AuthUserTemplateComponent,
+    component: AuthUserLayoutComponent,
     children: [
       {path: '', component: LogsComponent},
       {path: 'pacientes', component: CrudPacienteComponent},
@@ -23,9 +23,6 @@ const routes: Routes = [
       {path: 'examenes', component: CrudExamenComponent},
       {path: 'secretarios', component: CrudSecretarioComponent, canActivate: [AdminGuard]},
       {path: 'administradores', component: CrudAdminComponent, canActivate: [AdminGuard]},
-
-      // BORRAR ESTAS RUTAS
-      {path: 'create', component: CreateAdminComponent},
     ]
   }
 ];

@@ -15,7 +15,7 @@ export class CustomValidators{
     static rut(control: AbstractControl){
         // Codigo desde https://gist.github.com/rotvulpix/69a24cc199a4253d058c
 
-        let rut = control.value;
+        let rut = control.value.toString();
         // Despejar Puntos
         let valor = rut.replace('.','');
         // Despejar Guión

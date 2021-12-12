@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AuthUserRoutingModule } from './auth-user-routing.module';
-import { AuthUserTemplateComponent } from './auth-user-template/auth-user-template.component';
 import { CrudExamenComponent } from './crud-examen/crud-examen.component';
 import { CrudHoraMedicaComponent } from './crud-hora-medica/crud-hora-medica.component';
 import { CrudPacienteComponent } from './crud-paciente/crud-paciente.component';
@@ -23,14 +22,21 @@ import { EditPacienteComponent } from './components/edit-paciente/edit-paciente.
 import { EditPersonalComponent } from './components/edit-personal/edit-personal.component';
 import { EditSecretarioComponent } from './components/edit-secretario/edit-secretario.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AuthUserLayoutComponent } from './auth-user-layout/auth-user-layout.component';
+import { MaterialModule } from '../material/material.module';
+import { SharedModule } from '../shared/shared.module';
+
+
 
 
 @NgModule({
-  declarations: [AuthUserTemplateComponent, CrudExamenComponent, CrudHoraMedicaComponent, CrudPacienteComponent, CrudPersonalComponent, CrudSecretarioComponent, CrudAdminComponent, LogsComponent, CreateAdminComponent, CreateExamenComponent, CreateHoraMedicaComponent, CreatePacienteComponent, CreatePersonalComponent, CreateSecretarioComponent, EditAdminComponent, EditExamenComponent, EditHoraMedicaComponent, EditPacienteComponent, EditPersonalComponent, EditSecretarioComponent],
+  declarations: [CrudExamenComponent, CrudHoraMedicaComponent, CrudPacienteComponent, CrudPersonalComponent, CrudSecretarioComponent, CrudAdminComponent, LogsComponent, CreateAdminComponent, CreateExamenComponent, CreateHoraMedicaComponent, CreatePacienteComponent, CreatePersonalComponent, CreateSecretarioComponent, EditAdminComponent, EditExamenComponent, EditHoraMedicaComponent, EditPacienteComponent, EditPersonalComponent, EditSecretarioComponent, AuthUserLayoutComponent],
   imports: [
     CommonModule,
     AuthUserRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MaterialModule,
+    SharedModule
   ]
 })
 export class AuthUserModule { }

@@ -1,1 +1,16 @@
-<p>create-examen works!</p>
+<main>
+    <h1>Crear Exámen</h1>
+
+    <form [formGroup]="form" (ngSubmit)="save($event)">
+
+        <mat-form-field appearance="legacy">
+            <mat-label>Nombre</mat-label>
+            <input type="text" matInput formControlName="nombre">
+            <mat-error>
+              Ingresa un nombre
+            </mat-error>
+        </mat-form-field>
+
+        <button type="submit" mat-raised-button color="primary">Guardar</button>
+    </form>
+</main>

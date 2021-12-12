@@ -22,7 +22,6 @@ export class CreateExamenComponent implements OnInit {
 
   private buildForm(){
     this.form = this.formBuilder.group({
-      id: ['', [Validators.required]],
       nombre: ['', [Validators.required]],
     });
   }
@@ -35,25 +34,5 @@ export class CreateExamenComponent implements OnInit {
 
       console.log(examen);
     }
-  }
-
-  get idField(){
-    return this.form.get('id');
-  }
-  get nombreField(){
-    return this.form.get('nombre');
-  }
-
-  get isIdFieldValid(){
-    return (this.idField.touched || this.idField.dirty) && this.idField.valid;
-  }
-  get isIdFieldInvalid(){
-    return (this.idField.touched || this.idField.dirty) && this.idField.invalid;
-  }
-  get isNombreFieldValid(){
-    return (this.nombreField.touched || this.nombreField.dirty) && this.nombreField.valid;
-  }
-  get isNombreFieldInvalid(){
-    return (this.nombreField.touched || this.nombreField.dirty) && this.nombreField.invalid;
   }
 }
